@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Forge Gen</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Tailwind Config to match the original design tokens and shadcn requirements -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          container: {
+            center: true,
+            padding: "2rem",
+            screens: {
+              "2xl": "1400px",
+            },
+          },
+          extend: {
+            colors: {
+              // Existing colors
+              "primary-bright": "#60a5fa", 
+              "accent-purple": "#a855f7",
+              "background-dark": "#020617", // Slate-950
+              "surface-dark": "#0f172a", // Slate-900
+              "surface-light": "#1e293b", // Slate-800
+              "text-main": "#f8fafc", // Slate-50
+              "text-muted": "#cbd5e1", // Slate-300
+              
+              // Shadcn mapped colors
+              border: "#1e293b", // surface-light
+              input: "#1e293b",
+              ring: "#3b82f6", // primary
+              background: "#020617", // background-dark
+              foreground: "#f8fafc", // text-main
+              primary: {
+                DEFAULT: "#3b82f6",
+                foreground: "#ffffff",
+              },
+              secondary: {
+                DEFAULT: "#1e293b", // surface-light
+                foreground: "#f8fafc",
+              },
+              destructive: {
+                DEFAULT: "hsl(0 62.8% 30.6%)",
+                foreground: "hsl(210 40% 98%)",
+              },
+              muted: {
+                DEFAULT: "#1e293b",
+                foreground: "#cbd5e1",
+              },
+              accent: {
+                DEFAULT: "#1e293b",
+                foreground: "#f8fafc",
+              },
+              popover: {
+                DEFAULT: "#0f172a",
+                foreground: "#f8fafc",
+              },
+              card: {
+                DEFAULT: "#0f172a",
+                foreground: "#f8fafc",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+            animation: {
+                'blob': 'blob 7s infinite',
+                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'float': 'float 6s ease-in-out infinite',
+                'shimmer': 'shimmer 2s linear infinite',
+            },
+            keyframes: {
+                blob: {
+                    '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                    '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                    '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                    '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                },
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-1000px 0' },
+                    '100%': { backgroundPosition: '1000px 0' }
+                }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #020617;
+        color: #f8fafc;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #020617;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+      }
+      .text-glow {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      }
+      .title-glow {
+        filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1/",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.3.1",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.8?deps=react@18.3.1,react-dom@18.3.1",
+    "clsx": "https://esm.sh/clsx@2.1.0",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@2.2.1",
+    "@radix-ui/react-slot": "https://esm.sh/@radix-ui/react-slot@1.0.2?deps=react@18.3.1,react-dom@18.3.1",
+    "class-variance-authority": "https://esm.sh/class-variance-authority@0.7.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

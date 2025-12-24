@@ -1,0 +1,5 @@
+{
+  "name": "The Forge Gen",
+  "description": "High-fidelity recreation of The Forge Gen landing page using React, Tailwind CSS, and Framer Motion aesthetics.",
+  "requestFramePermissions": []
+}
