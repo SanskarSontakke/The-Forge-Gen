@@ -7,12 +7,9 @@ import { Button } from "./button";
 function FloatingPaths({ position }: { position: number }) {
     const paths = Array.from({ length: 36 }, (_, i) => ({
         id: i,
-        d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-            380 - i * 5 * position
-        } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-            152 - i * 5 * position
-        } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-            684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+        d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position
+            } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position
+            } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
         color: `rgba(15,23,42,${0.1 + i * 0.03})`,
         width: 0.5 + i * 0.03,
     }));
@@ -58,6 +55,13 @@ export function BackgroundPaths({
 }) {
     const words = title.split(" ");
 
+    const handleDiscoverClick = () => {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-transparent">
             {/* Fixed Background Layer */}
@@ -67,9 +71,9 @@ export function BackgroundPaths({
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+            <div className="relative z-50 container mx-auto px-4 md:px-6 text-center">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8 tracking-tighter title-glow">
+                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8 pb-4 tracking-tighter title-glow">
                         {words.map((word, wordIndex) => (
                             <span
                                 key={wordIndex}
@@ -106,13 +110,14 @@ export function BackgroundPaths({
                         viewport={{ once: true }}
                         transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
                         className="inline-block group relative cursor-pointer"
+                        onClick={handleDiscoverClick}
                     >
                         {/* Hover Gradient Background */}
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full blur-lg group-hover:blur-xl" />
-                        
+
                         {/* Border Wrapper */}
                         <div className="relative p-[1px] rounded-full bg-gradient-to-r from-slate-700 to-slate-800 group-hover:from-cyan-400 group-hover:via-blue-500 group-hover:to-purple-600 transition-all duration-500 group-hover:scale-105">
-                            
+
                             {/* Button Content */}
                             <Button
                                 variant="ghost"

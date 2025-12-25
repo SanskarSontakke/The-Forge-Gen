@@ -11,11 +11,11 @@ const Community: React.FC = () => {
 
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-900/5 to-transparent pointer-events-none -z-10"></div>
       <div className="absolute -left-20 bottom-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow -z-10"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -33,16 +33,16 @@ const Community: React.FC = () => {
               Gain exclusive access to development builds, contribute to open-source initiatives, and network with other generative AI pioneers. The Forge isn't just a tool; it's a movement where ideas become reality.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="#community" className="group relative px-8 py-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/30">
+              <a href="https://github.com/SanskarSontakke" target="_blank" rel="noopener noreferrer" className="group relative px-8 py-4 bg-primary hover:bg-blue-600 text-white font-bold rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/30">
                 <span className="relative z-10 flex items-center">
-                  Launch Discord
+                  Join on GitHub
                   <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

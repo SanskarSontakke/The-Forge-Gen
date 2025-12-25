@@ -8,14 +8,14 @@ const Lab: React.FC = () => {
       {/* Background Gradients: Cyan/Slate Theme */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 -z-30"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom_right,transparent_0%,rgba(6,182,212,0.05)_50%,transparent_100%)] -z-20"></div>
-      
+
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-transparent pointer-events-none -z-10"></div>
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow -z-10"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -33,14 +33,14 @@ const Lab: React.FC = () => {
               Step into our experimental playground. We are constantly pushing the boundaries of what's possible with neural networks in the browser. Access our latest alpha builds and prototypes before they hit the mainline.
             </p>
             <div className="pt-4">
-              <a href="#" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/25 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-slate-900">
+              <a href="https://github.com/SanskarSontakke?tab=repositories" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/25 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-slate-900">
                 Launch Lab Environment
                 <Rocket className="w-5 h-5 ml-2" />
               </a>
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

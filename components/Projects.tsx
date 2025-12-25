@@ -1,12 +1,151 @@
 import React from 'react';
-import { Clapperboard, ArrowRight, UtensilsCrossed } from 'lucide-react';
+import { Clapperboard, ArrowRight, UtensilsCrossed, Layers, Zap, Image as ImageIcon, Github, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  icon: React.ElementType;
+  color: string;
+  githubUrl: string;
+  badge: string;
+}
+
+const projects: Project[] = [
+  {
+    title: 'Obsidian Forge',
+    description: 'The premier script-to-screen engine. Transforms narrative text into storyboarded video sequences with intelligent scene blocking using the Gemini API.',
+    tags: ['React', 'Vite', 'Gemini API'],
+    icon: Clapperboard,
+    color: 'purple',
+    githubUrl: 'https://github.com/SanskarSontakke/Obsidian-Forge',
+    badge: 'AI Video',
+  },
+  {
+    title: 'Culinary Forge',
+    description: 'Your AI food stylist. Renders hyper-realistic gastronomy visuals from menu descriptions using Gemini 2.5 Flash, bypassing the need for physical photoshoots.',
+    tags: ['React', 'TypeScript', 'Gemini 2.5 Flash'],
+    icon: UtensilsCrossed,
+    color: 'orange',
+    githubUrl: 'https://github.com/SanskarSontakke/Culinary-Forge',
+    badge: 'AI Photo',
+  },
+  {
+    title: 'Vectra Forge',
+    description: 'An AI-powered design tool that generates instant, high-quality product mockups from vector or logo uploads. Features realistic lighting and texture rendering.',
+    tags: ['React', 'TypeScript', 'Gemini 2.5 Flash'],
+    icon: Layers,
+    color: 'blue',
+    githubUrl: 'https://github.com/SanskarSontakke/Vectra-Forge',
+    badge: 'AI Design',
+  },
+  {
+    title: 'Onyx Forge',
+    description: 'Generate high-quality, professional banner ads in standard sizes using product descriptions and URLs. Optimized for marketing campaigns.',
+    tags: ['React', 'TypeScript', 'Gemini 2.5 Flash'],
+    icon: Zap,
+    color: 'amber',
+    githubUrl: 'https://github.com/SanskarSontakke/Onyx-Forge',
+    badge: 'AI Marketing',
+  },
+  {
+    title: 'Lumina Forge',
+    description: 'Professional product photo editing and background removal powered by Gemini 2.5 Flash Image. Enhances e-commerce assets automatically.',
+    tags: ['React', 'TypeScript', 'Gemini 2.5 Flash'],
+    icon: ImageIcon,
+    color: 'emerald',
+    githubUrl: 'https://github.com/SanskarSontakke/Lumina-Forge',
+    badge: 'AI Editing',
+  },
+];
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, { border: string, shadow: string, hoverBorder: string, bg: string, text: string, icon: string, badgeBg: string, badgeText: string, badgeBorder: string, gradientFrom: string, gradientTo: string, buttonBg: string, buttonHover: string }> = {
+    purple: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]',
+      hoverBorder: 'hover:border-purple-500/50',
+      bg: 'bg-purple-900/20',
+      text: 'hover:text-purple-200',
+      icon: 'text-purple-400',
+      badgeBg: 'bg-purple-900/30',
+      badgeText: 'text-purple-200',
+      badgeBorder: 'border-purple-500/30',
+      gradientFrom: 'from-purple-400',
+      gradientTo: 'to-blue-500',
+      buttonBg: 'bg-purple-600',
+      buttonHover: 'hover:bg-purple-500'
+    },
+    orange: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(249,115,22,0.15)]',
+      hoverBorder: 'hover:border-orange-500/50',
+      bg: 'bg-orange-900/20',
+      text: 'hover:text-orange-200',
+      icon: 'text-orange-400',
+      badgeBg: 'bg-orange-900/30',
+      badgeText: 'text-orange-200',
+      badgeBorder: 'border-orange-500/30',
+      gradientFrom: 'from-orange-400',
+      gradientTo: 'to-red-500',
+      buttonBg: 'bg-orange-600',
+      buttonHover: 'hover:bg-orange-500'
+    },
+    blue: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]',
+      hoverBorder: 'hover:border-blue-500/50',
+      bg: 'bg-blue-900/20',
+      text: 'hover:text-blue-200',
+      icon: 'text-blue-400',
+      badgeBg: 'bg-blue-900/30',
+      badgeText: 'text-blue-200',
+      badgeBorder: 'border-blue-500/30',
+      gradientFrom: 'from-blue-400',
+      gradientTo: 'to-cyan-500',
+      buttonBg: 'bg-blue-600',
+      buttonHover: 'hover:bg-blue-500'
+    },
+    amber: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(245,158,11,0.15)]',
+      hoverBorder: 'hover:border-amber-500/50',
+      bg: 'bg-amber-900/20',
+      text: 'hover:text-amber-200',
+      icon: 'text-amber-400',
+      badgeBg: 'bg-amber-900/30',
+      badgeText: 'text-amber-200',
+      badgeBorder: 'border-amber-500/30',
+      gradientFrom: 'from-amber-400',
+      gradientTo: 'to-yellow-500',
+      buttonBg: 'bg-amber-600',
+      buttonHover: 'hover:bg-amber-500'
+    },
+    emerald: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]',
+      hoverBorder: 'hover:border-emerald-500/50',
+      bg: 'bg-emerald-900/20',
+      text: 'hover:text-emerald-200',
+      icon: 'text-emerald-400',
+      badgeBg: 'bg-emerald-900/30',
+      badgeText: 'text-emerald-200',
+      badgeBorder: 'border-emerald-500/30',
+      gradientFrom: 'from-emerald-400',
+      gradientTo: 'to-teal-500',
+      buttonBg: 'bg-emerald-600',
+      buttonHover: 'hover:bg-emerald-500'
+    }
+  };
+  return colors[color] || colors.purple;
+};
 
 const Projects: React.FC = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" }
     }
@@ -31,107 +170,76 @@ const Projects: React.FC = () => {
               Forge Projects
             </p>
             <p className="mt-4 max-w-2xl text-xl text-slate-300 mx-auto">
-              Explore our latest high-impact generative AI implementations and experiments.
+              Open-source generative AI tools powered by Google AI Studio & Gemini API.
             </p>
           </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          
-          {/* Project Card 1 */}
-          <motion.div 
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="group relative bg-surface-dark/60 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] hover:-translate-y-1 transition-all duration-300"
-          >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-purple-900/20 rounded-xl border border-purple-700/30 group-hover:bg-purple-900/40 transition-colors">
-                    <Clapperboard className="w-8 h-8 text-purple-400 group-hover:text-purple-300 group-hover:animate-bounce" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white tracking-tight">Obsidian Forge</h3>
-                </div>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-900/30 text-purple-200 border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.15)]">
-                  AI Video
-                </span>
-              </div>
-              <p className="text-slate-300 text-lg leading-relaxed mb-8 border-l-2 border-purple-500/30 pl-4 h-24 overflow-hidden">
-                The premier script-to-screen engine. Transforms narrative text into storyboarded video sequences with intelligent scene blocking using the Gemini API.
-              </p>
-              <div className="mb-8">
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Tech Stack</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'Vite', 'Gemini API'].map((tech) => (
-                    <span key={tech} className="px-3 py-1.5 bg-slate-800/50 border border-slate-600/50 rounded-lg text-xs font-semibold text-white font-mono hover:border-purple-400/50 hover:text-purple-200 transition-colors cursor-default">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center justify-between pt-6 border-t border-slate-700/50">
-                <div className="flex -space-x-3 overflow-hidden pl-1">
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK2EKFVj4KoN2oclExMAAtauxU939-CtDWzj0wI1s5VWIIbIZqHWCrKsUhiDoyWb4fjlo-X4kSEQlkZmLplpqMoSWbBRx3nZ7A3EF08ozX6TIJeucF-YaoLW_4OWtGUKaLjguTgPsucqus0ZyXs2VBMO5y8Bk5po1vXFlGNe8acN7NKxbjzSdgLEHU4OoaK4EOs-tr96RpkN_3jbT0oeqlriftt997RKNQIbmO1dxXlekMoR3tCQcgvfr8Kh04TvDo7UiqAiGSkUX0" alt="User" className="inline-block h-10 w-10 rounded-full ring-2 ring-surface-dark bg-slate-700" />
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXJpcRn3d_p1SvbdHeSqNu3QgNW-sd6tjPuqdelApcNPRSI9TKaEKgUzz3-LVb3x79GfHkQy9euHEQd6oUGwzZVYr4EvwX4XiB0TMPn40HSZk7t_Axem4m_9amgPDTyztG5kEF_sXdHVnkC_8XOhyOEQocj8PodXFQGLrN0xfMTz_H4E-1Qs3zcVUl6FOET9SVZGkLfmeOl1bqH3lpl8WGwT2jewBSif1-Bv1tEOAvcDlnitglthssGWjWFGVEGVd_fPIqHMo4fZSx" alt="Bot" className="inline-block h-10 w-10 rounded-full ring-2 ring-surface-dark bg-slate-700" />
-                </div>
-                <a href="#" className="group/btn inline-flex items-center gap-2 text-white font-semibold bg-purple-600 hover:bg-purple-500 px-6 py-2.5 rounded-lg transition-all shadow-lg shadow-purple-900/40 hover:shadow-purple-600/30">
-                  View Code
-                  <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
 
-          {/* Project Card 2 */}
-          <motion.div 
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: 0.2 }}
-            className="group relative bg-surface-dark/60 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden border border-slate-700/50 hover:border-orange-500/50 hover:shadow-[0_0_40px_rgba(249,115,22,0.15)] hover:-translate-y-1 transition-all duration-300"
-          >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-red-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-orange-900/20 rounded-xl border border-orange-700/30 group-hover:bg-orange-900/40 transition-colors">
-                    <UtensilsCrossed className="w-8 h-8 text-orange-400 group-hover:text-orange-300 group-hover:animate-bounce" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white tracking-tight">Culinary Forge</h3>
-                </div>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-900/30 text-orange-200 border border-orange-500/30 shadow-[0_0_15px_rgba(249,115,22,0.15)]">
-                  AI Photo
-                </span>
-              </div>
-              <p className="text-slate-300 text-lg leading-relaxed mb-8 border-l-2 border-orange-500/30 pl-4 h-24 overflow-hidden">
-                Your AI food stylist. Renders hyper-realistic gastronomy visuals from menu descriptions using Gemini 2.5 Flash, bypassing the need for physical photoshoots.
-              </p>
-              <div className="mb-8">
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Tech Stack</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'TypeScript', 'Gemini 2.5'].map((tech) => (
-                    <span key={tech} className="px-3 py-1.5 bg-slate-800/50 border border-slate-600/50 rounded-lg text-xs font-semibold text-white font-mono hover:border-orange-400/50 hover:text-orange-200 transition-colors cursor-default">
-                      {tech}
+          {projects.map((project, index) => {
+            const colors = getColorClasses(project.color);
+            return (
+              <motion.div
+                key={project.title}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1 }}
+                className={`group relative bg-surface-dark/60 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden border ${colors.border} ${colors.hoverBorder} ${colors.shadow} hover:-translate-y-1 transition-all duration-300`}
+              >
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${colors.gradientFrom} ${colors.gradientTo} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`p-3 ${colors.bg} rounded-xl border ${colors.badgeBorder} transition-colors`}>
+                        <project.icon className={`w-8 h-8 ${colors.icon} group-hover:animate-bounce`} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-white tracking-tight">{project.title}</h3>
+                    </div>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${colors.badgeBg} ${colors.badgeText} border ${colors.badgeBorder} shadow-[0_0_15px_rgba(255,255,255,0.05)]`}>
+                      {project.badge}
                     </span>
-                  ))}
+                  </div>
+                  <p className={`text-slate-300 text-lg leading-relaxed mb-8 border-l-2 ${colors.badgeBorder} pl-4 h-24 overflow-hidden`}>
+                    {project.description}
+                  </p>
+                  <div className="mb-8">
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tech) => (
+                        <span key={tech} className={`px-3 py-1.5 bg-slate-800/50 border border-slate-600/50 rounded-lg text-xs font-semibold text-white font-mono hover:border-opactiy-50 ${colors.text} transition-colors cursor-default`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between pt-6 border-t border-slate-700/50">
+                    <a
+                      href="https://aistudio.google.com/apikey"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-white text-sm flex items-center gap-2 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Get API Key
+                    </a>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group/btn inline-flex items-center gap-2 text-white font-semibold ${colors.buttonBg} ${colors.buttonHover} px-6 py-2.5 rounded-lg transition-all shadow-lg hover:shadow-xl`}
+                    >
+                      <Github className="w-5 h-5" />
+                      View on GitHub
+                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-between pt-6 border-t border-slate-700/50">
-                <div className="flex -space-x-3 overflow-hidden pl-1">
-                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApzC-sRBa438Ak_FltNkkw-daC9ThX8bZFbm2Ocp_cMW1ECUxRCotRPAWUYdDS5o-XJO7kpyFWd-kjpABULLqym-YcYGQMuK1xPHBhLHzvqDbwD2ob74VdM4nnsw37Ub7bg38V82TL4obtLGSR0MTkC2QGGUvBEd_5uvOiLHe3MeWenGIUbq7y-DDWbvVzQKVsHwuVZA3TrdOD2gl-dHfhuC8KrgNlkAcGPY-fSqaTa3UdJycgUuh3p0vgZ9uUwpZD-24Npqz3UsnL" alt="User" className="inline-block h-10 w-10 rounded-full ring-2 ring-surface-dark bg-slate-700" />
-                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsR1rGeNPWDp5jT2bb4IhUF0YomdyDGQ8-8fgzDqDvXlTDZw82gtObOzB8oNBpTWC6yqf1BXn46yOWNwOL34cy28vwPbp2-vhOnTFgF0LejLud54Rj0iMQeAVvRVezeAEAl6qZEFBt6fcDKlWAG5swoSzYFjkiez07xbLZN3rWxYhXTI6VSbmNoykREyK7hiANT-rCtgYHG03EvcxJUSHflt4ITzY18_kAIS86Q-pGA_Freym6jtBO2jdtxNMjbfuAS4lE5hCQFEBJ" alt="Bot" className="inline-block h-10 w-10 rounded-full ring-2 ring-surface-dark bg-slate-700" />
-                </div>
-                <a href="#" className="group/btn inline-flex items-center gap-2 text-white font-semibold bg-orange-600 hover:bg-orange-500 px-6 py-2.5 rounded-lg transition-all shadow-lg shadow-orange-900/40 hover:shadow-orange-600/30">
-                  View Code
-                  <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
+              </motion.div>
+            );
+          })}
 
         </div>
       </div>
