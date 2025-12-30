@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clapperboard, UtensilsCrossed, Layers, Zap, Image as ImageIcon, Code, Sparkles, Cpu, ArrowRight } from 'lucide-react';
+import { Clapperboard, UtensilsCrossed, Layers, Zap, Image as ImageIcon, Code, Sparkles, Cpu, ArrowRight, Shirt, MessageCircle, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {
@@ -65,6 +65,18 @@ const Services: React.FC = () => {
       project: 'Lumina Forge'
     },
     {
+      title: 'AI Personal Styling',
+      desc: 'Instant outfit generation and style matching. Upload clothing items to receive complete fashion recommendations. Solve the "what to wear" dilemma instantly.',
+      icon: <Shirt className="w-10 h-10 text-rose-400 group-hover:text-rose-300 transition-colors" />,
+      color: 'rose',
+      shadow: 'shadow-rose-500/10',
+      borderHover: 'hover:border-rose-500/50',
+      bgHover: 'group-hover:opacity-100',
+      iconBg: 'bg-gradient-to-br from-rose-500/20 to-rose-900/40 border-rose-500/30',
+      href: 'https://github.com/SanskarSontakke/Style-Forge',
+      project: 'Style Forge'
+    },
+    {
       title: 'Gemini API Integration',
       desc: 'Expert integration of Google Gemini models into web applications. Text generation, image synthesis, multimodal AI, and conversational interfaces.',
       icon: <Sparkles className="w-10 h-10 text-pink-400 group-hover:text-pink-300 transition-colors" />,
@@ -79,14 +91,26 @@ const Services: React.FC = () => {
     {
       title: 'React & TypeScript Apps',
       desc: 'Modern, performant web applications built with React, TypeScript, Vite, and Tailwind CSS. Clean architecture with production-ready code quality.',
-      icon: <Code className="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" />,
+      icon: <Terminal className="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" />,
       color: 'cyan',
       shadow: 'shadow-cyan-500/10',
       borderHover: 'hover:border-cyan-500/50',
       bgHover: 'group-hover:opacity-100',
       iconBg: 'bg-gradient-to-br from-cyan-500/20 to-cyan-900/40 border-cyan-500/30',
-      href: 'https://github.com/SanskarSontakke?tab=repositories',
-      project: null
+      href: 'https://github.com/SanskarSontakke/Cyan-Forge',
+      project: 'Cyan Forge'
+    },
+    {
+      title: 'AI Social Media',
+      desc: 'Automate your social presence. Generate captions, schedule posts, and analyze trends with our AI-powered social media management suite.',
+      icon: <MessageCircle className="w-10 h-10 text-indigo-400 group-hover:text-indigo-300 transition-colors" />,
+      color: 'indigo',
+      shadow: 'shadow-indigo-500/10',
+      borderHover: 'hover:border-indigo-500/50',
+      bgHover: 'group-hover:opacity-100',
+      iconBg: 'bg-gradient-to-br from-indigo-500/20 to-indigo-900/40 border-indigo-500/30',
+      href: 'https://github.com/SanskarSontakke/Social-Forge',
+      project: 'Social Forge'
     },
     {
       title: 'Custom AI Solutions',

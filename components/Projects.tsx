@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clapperboard, ArrowRight, UtensilsCrossed, Layers, Zap, Image as ImageIcon, Github, ExternalLink } from 'lucide-react';
+import { Clapperboard, ArrowRight, UtensilsCrossed, Layers, Zap, Image as ImageIcon, Github, ExternalLink, Shirt, MessageCircle, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface Project {
@@ -57,6 +57,33 @@ const projects: Project[] = [
     color: 'emerald',
     githubUrl: 'https://github.com/SanskarSontakke/Lumina-Forge',
     badge: 'AI Editing',
+  },
+  {
+    title: 'Style Forge',
+    description: "Solve the 'I don't know what to wear' problem. Upload an item and our AI Stylist builds complete outfits around it with instant visualization.",
+    tags: ['React', 'TypeScript', 'Gemini 2.5 Flash'],
+    icon: Shirt,
+    color: 'rose',
+    githubUrl: 'https://github.com/SanskarSontakke/Style-Forge',
+    badge: 'AI Fashion',
+  },
+  {
+    title: 'Social Forge',
+    description: 'AI-powered social media automation. Generate engaging captions, research hashtags, and schedule posts across platforms using Gemini.',
+    tags: ['React', 'TypeScript', 'Gemini 2.5 Flash'],
+    icon: MessageCircle,
+    color: 'indigo',
+    githubUrl: 'https://github.com/SanskarSontakke/Social-Forge',
+    badge: 'AI Social',
+  },
+  {
+    title: 'Cyan Forge',
+    description: 'The ultimate React & TypeScript starter kit. Pre-configured with Vite, Tailwind, Framer Motion, and Gemini API integration for rapid prototyping.',
+    tags: ['React', 'TypeScript', 'Vite'],
+    icon: Terminal,
+    color: 'cyan',
+    githubUrl: 'https://github.com/SanskarSontakke/Cyan-Forge',
+    badge: 'Dev Tools',
   },
 ];
 
@@ -136,6 +163,51 @@ const getColorClasses = (color: string) => {
       gradientTo: 'to-teal-500',
       buttonBg: 'bg-emerald-600',
       buttonHover: 'hover:bg-emerald-500'
+    },
+    rose: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(244,63,94,0.15)]',
+      hoverBorder: 'hover:border-rose-500/50',
+      bg: 'bg-rose-900/20',
+      text: 'hover:text-rose-200',
+      icon: 'text-rose-400',
+      badgeBg: 'bg-rose-900/30',
+      badgeText: 'text-rose-200',
+      badgeBorder: 'border-rose-500/30',
+      gradientFrom: 'from-rose-400',
+      gradientTo: 'to-pink-500',
+      buttonBg: 'bg-rose-600',
+      buttonHover: 'hover:bg-rose-500'
+    },
+    cyan: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(6,182,212,0.15)]',
+      hoverBorder: 'hover:border-cyan-500/50',
+      bg: 'bg-cyan-900/20',
+      text: 'hover:text-cyan-200',
+      icon: 'text-cyan-400',
+      badgeBg: 'bg-cyan-900/30',
+      badgeText: 'text-cyan-200',
+      badgeBorder: 'border-cyan-500/30',
+      gradientFrom: 'from-cyan-400',
+      gradientTo: 'to-blue-500',
+      buttonBg: 'bg-cyan-600',
+      buttonHover: 'hover:bg-cyan-500'
+    },
+    indigo: {
+      border: 'border-slate-700/50',
+      shadow: 'hover:shadow-[0_0_40px_rgba(99,102,241,0.15)]',
+      hoverBorder: 'hover:border-indigo-500/50',
+      bg: 'bg-indigo-900/20',
+      text: 'hover:text-indigo-200',
+      icon: 'text-indigo-400',
+      badgeBg: 'bg-indigo-900/30',
+      badgeText: 'text-indigo-200',
+      badgeBorder: 'border-indigo-500/30',
+      gradientFrom: 'from-indigo-400',
+      gradientTo: 'to-violet-500',
+      buttonBg: 'bg-indigo-600',
+      buttonHover: 'hover:bg-indigo-500'
     }
   };
   return colors[color] || colors.purple;

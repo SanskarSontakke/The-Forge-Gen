@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, ArrowLeft, BookOpen, Key, Zap, Clapperboard, UtensilsCrossed, Layers, Image as ImageIcon, Terminal, AlertTriangle, CheckCircle, ChevronRight, ExternalLink, Code, Settings, Rocket, Shield, HelpCircle, Wrench, FileCode, Cpu } from 'lucide-react';
+import { Sun, Moon, ArrowLeft, BookOpen, Key, Zap, Clapperboard, UtensilsCrossed, Layers, Image as ImageIcon, Terminal, AlertTriangle, CheckCircle, ChevronRight, ExternalLink, Code, Settings, Rocket, Shield, HelpCircle, Wrench, FileCode, Cpu, Shirt, MessageCircle } from 'lucide-react';
 
 interface NavItem {
     id: string;
@@ -16,6 +16,9 @@ const navItems: NavItem[] = [
     { id: 'vectra-forge', label: 'Vectra Forge', icon: Layers },
     { id: 'onyx-forge', label: 'Onyx Forge', icon: Zap },
     { id: 'lumina-forge', label: 'Lumina Forge', icon: ImageIcon },
+    { id: 'style-forge', label: 'Style Forge', icon: Shirt },
+    { id: 'social-forge', label: 'Social Forge', icon: MessageCircle },
+    { id: 'cyan-forge', label: 'Cyan Forge', icon: Terminal },
     { id: 'api-reference', label: 'API Reference', icon: FileCode },
     { id: 'troubleshooting', label: 'Troubleshooting', icon: Wrench },
     { id: 'best-practices', label: 'Best Practices', icon: Shield },
@@ -507,6 +510,111 @@ npm run dev`}</CodeBlock>
                                     <AlertBox type="info">
                                         Lumina Forge uses Gemini 2.5 Flash's image editing capabilities for high-quality results.
                                     </AlertBox>
+                                </section>
+                            )}
+
+                            {/* Style Forge */}
+                            {activeSection === 'style-forge' && (
+                                <section>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 bg-rose-900/30 rounded-lg">
+                                            <Shirt className="w-6 h-6 text-rose-400" />
+                                        </div>
+                                        <h1 className="text-3xl font-bold">Style Forge</h1>
+                                    </div>
+                                    <p className={`${mutedClass} text-lg mb-8`}>Your personal AI Stylist. Solves the "what to wear" dilemma.</p>
+
+                                    <div className="flex gap-2 mb-8">
+                                        <a href="https://github.com/SanskarSontakke/Style-Forge" target="_blank" className="inline-flex items-center gap-2 px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-lg font-medium transition-colors">
+                                            <ExternalLink className="w-4 h-4" /> View on GitHub
+                                        </a>
+                                    </div>
+
+                                    <h2 className="text-2xl font-semibold mt-8 mb-4">Overview</h2>
+                                    <p className="mb-4">Style Forge analyzes your clothing items to build complete outfits:</p>
+                                    <ul className={`list-disc list-inside space-y-2 ${mutedClass} mb-6`}>
+                                        <li><strong className={textClass}>Color Analysis</strong> - Extracts palettes from clothing photos</li>
+                                        <li><strong className={textClass}>Style Matching</strong> - Recommends complementary pieces</li>
+                                        <li><strong className={textClass}>Outfit Generation</strong> - Creates 6 complete looks per item</li>
+                                        <li><strong className={textClass}>Visual Try-on</strong> - Instant visualization of recommendations</li>
+                                    </ul>
+
+                                    <h2 className="text-2xl font-semibold mt-8 mb-4">Quick Start</h2>
+                                    <CodeBlock>{`git clone https://github.com/SanskarSontakke/Style-Forge.git
+cd Style-Forge && npm install
+echo "GEMINI_API_KEY=your_key" > .env
+npm run dev`}</CodeBlock>
+
+                                    <AlertBox type="info">
+                                        Style Forge uses Gemini's multimodal capabilities to analyze fabric textures and matches them with current fashion trends.
+                                    </AlertBox>
+                                </section>
+                            )}
+
+                            {/* Social Forge */}
+                            {activeSection === 'social-forge' && (
+                                <section>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 bg-indigo-900/30 rounded-lg">
+                                            <MessageCircle className="w-6 h-6 text-indigo-400" />
+                                        </div>
+                                        <h1 className="text-3xl font-bold">Social Forge</h1>
+                                    </div>
+                                    <p className={`${mutedClass} text-lg mb-8`}>AI-powered social media automation and management.</p>
+
+                                    <div className="flex gap-2 mb-8">
+                                        <a href="https://github.com/SanskarSontakke/Social-Forge" target="_blank" className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
+                                            <ExternalLink className="w-4 h-4" /> View on GitHub
+                                        </a>
+                                    </div>
+
+                                    <h2 className="text-2xl font-semibold mt-8 mb-4">Overview</h2>
+                                    <p className="mb-4">Social Forge automates your content workflow:</p>
+                                    <ul className={`list-disc list-inside space-y-2 ${mutedClass} mb-6`}>
+                                        <li><strong className={textClass}>Caption Generation</strong> - Engaging captions for any platform</li>
+                                        <li><strong className={textClass}>Trend Analysis</strong> - Identify viral tropics</li>
+                                        <li><strong className={textClass}>Smart Scheduling</strong> - Optimize post timing</li>
+                                        <li><strong className={textClass}>Hashtag Research</strong> - Data-driven tag suggestions</li>
+                                    </ul>
+
+                                    <h2 className="text-2xl font-semibold mt-8 mb-4">Quick Start</h2>
+                                    <CodeBlock>{`git clone https://github.com/SanskarSontakke/Social-Forge.git
+cd Social-Forge && npm install
+echo "GEMINI_API_KEY=your_key" > .env
+npm run dev`}</CodeBlock>
+                                </section>
+                            )}
+
+                            {/* Cyan Forge */}
+                            {activeSection === 'cyan-forge' && (
+                                <section>
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 bg-cyan-900/30 rounded-lg">
+                                            <Terminal className="w-6 h-6 text-cyan-400" />
+                                        </div>
+                                        <h1 className="text-3xl font-bold">Cyan Forge</h1>
+                                    </div>
+                                    <p className={`${mutedClass} text-lg mb-8`}>The ultimate React & TypeScript starter kit for AI apps.</p>
+
+                                    <div className="flex gap-2 mb-8">
+                                        <a href="https://github.com/SanskarSontakke/Cyan-Forge" target="_blank" className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg font-medium transition-colors">
+                                            <ExternalLink className="w-4 h-4" /> View on GitHub
+                                        </a>
+                                    </div>
+
+                                    <h2 className="text-2xl font-semibold mt-8 mb-4">Features</h2>
+                                    <ul className={`list-disc list-inside space-y-2 ${mutedClass} mb-6`}>
+                                        <li>Pre-configured Vite & TypeScript</li>
+                                        <li>Tailwind CSS & Framer Motion included</li>
+                                        <li>Gemini API integration ready</li>
+                                        <li>Production-grade project structure</li>
+                                    </ul>
+
+                                    <h2 className="text-2xl font-semibold mt-8 mb-4">Quick Start</h2>
+                                    <CodeBlock>{`git clone https://github.com/SanskarSontakke/Cyan-Forge.git my-app
+cd my-app && npm install
+echo "GEMINI_API_KEY=your_key" > .env
+npm run dev`}</CodeBlock>
                                 </section>
                             )}
 
